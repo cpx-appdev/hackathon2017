@@ -8,7 +8,24 @@ import { Response, Request, NextFunction } from "express";
 
 
 export let getList = (req: Request, res: Response) => {
-  const users = NavPoint.collection.find(req.query).toArray();
+  NavPoint.find(req.query).then(
+    s => {
   res.status(httpStatus.OK);
-  res.json(users);
+  res.json(s);
+    });
+};
+
+export let get = (req: Request, res: Response) => {
+  NavPoint.findOne({ name: req.param("name") }).then(
+    s => {
+  res.status(httpStatus.OK);
+  res.json(s);
+    });
+  res.end();
+};
+
+export let create = (req: Request, res: Response) => {
+  const navpoint = new NavPoint(req.body).save();
+  res.status(httpStatus.OK);
+  res.json(navpoint);
 };

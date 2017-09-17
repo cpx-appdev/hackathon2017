@@ -29,8 +29,6 @@ dotenv.config({ path: ".env" });
  * Controllers (route handlers).
  */
 import * as homeController from "./controllers/home";
-import * as apiHomeController from "./controllers/api/v1/index";
-import * as navpointsController from "./controllers/api/v1/navpoints";
 
 /**
  * Create Express server.
@@ -74,8 +72,7 @@ app.get("/", homeController.index);
 /**
  * API routes.
  */
-app.get("/api/v1/index", apiHomeController.getApi);
-app.get("/api/v1/navpoints", navpointsController.getList);
+app.use("/api", require("./routes/api").api);
 
 /**
  * Error Handler. Provides full stack - remove for production
