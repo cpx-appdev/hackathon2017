@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-class WlanPackage(val roomName: String, val entries: Array<WlanEntry>) {
+class WlanPackage(val navPointName: String, val entries: Array<WlanEntry>) {
 
 }
 
