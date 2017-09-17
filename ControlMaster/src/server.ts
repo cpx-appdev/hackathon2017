@@ -47,8 +47,6 @@ mongoose.connection.on("error", () => {
   process.exit();
 });
 
-
-
 /**
  * Express configuration.
  */

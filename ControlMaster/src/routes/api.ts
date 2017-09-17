@@ -5,9 +5,12 @@ import * as express from "express";
 export const api = express.Router();
 
 import * as apiHomeController from "../controllers/api/index";
-import * as navpointsController from "../controllers/api/v1/navpoints";
+import * as navpointsController from "../controllers/api/navpoints";
 
 api.get("/", apiHomeController.getApi);
-api.get("/v1/navpoints", navpointsController.getList);
-api.get("/v1/navpoints/:name", navpointsController.get);
-api.post("/v1/navpoints/create", navpointsController.create);
+api.get("/navpoints", navpointsController.getList);
+api.get("/navpoints/:name", navpointsController.get);
+api.put("/navpoints", navpointsController.create);
+api.post("/navpoints/:name", navpointsController.replace);
+api.post("/navpoints/:name", navpointsController.update);
+api.delete("/navpoints/:name", navpointsController.remove);

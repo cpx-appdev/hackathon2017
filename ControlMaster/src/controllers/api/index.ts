@@ -6,11 +6,11 @@ import { Response, Request, NextFunction } from "express";
 
 
 /**
- * GET /api/v1
- * List of version 1 apis.
+ * GET /api
+ * List of apis.
  */
 export let getApi = (req: Request, res: Response) => {
-  res.render("api/v1/index", {
+  res.render("api/index", {
     title: "Manage navigation points"
   });
 };

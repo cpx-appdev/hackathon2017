@@ -35,7 +35,6 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "@types/http-status": "^0.2.30",
     "async": "^2.5.0",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.18.1",
@@ -58,6 +57,7 @@
     "request": "^2.81.0"
   },
   "devDependencies": {
+    "@types/http-status": "^0.2.30",    
     "@types/async": "^2.0.42",
     "@types/bcrypt-nodejs": "0.0.30",
     "@types/body-parser": "^1.16.5",
