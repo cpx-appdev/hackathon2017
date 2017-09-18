@@ -18,5 +18,10 @@ export let convertFrom = (dto: NavPointDto) => {
   );
 
   const navPoint = new NavPoint(doc);
+  NavPoint.findOne({name : doc.name}).then(
+    d => {
+    navPoint.id = d.id;
+  });
+
   return navPoint;
 };

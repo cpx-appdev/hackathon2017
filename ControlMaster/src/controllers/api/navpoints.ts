@@ -9,7 +9,7 @@ import { convertFrom } from "../../converter/NavPointConverter";
 
 
 export let getList = (req: Request, res: Response) => {
-  NavPoint.find(req.query).then(
+  NavPoint.find().then(
     s => {
   res.status(httpStatus.OK);
   res.json(s);
@@ -26,9 +26,19 @@ export let get = (req: Request, res: Response) => {
 };
 
 export let create = (req: Request, res: Response) => {
-  const navpoint = convertFrom(req.body).save();
-  res.status(httpStatus.CREATED);
-  res.json(navpoint);
+  convertFrom(req.body).save()
+  .catch(r => {
+      res.statusMessage = r;
+      res.status(httpStatus.BAD_REQUEST);
+      res.end();
+    }
+  )
+  .then(
+    r => {
+      res.status(httpStatus.CREATED);
+      res.json(r);
+    }
+  );
 };
 
 export let replace = (req: Request, res: Response) => {
